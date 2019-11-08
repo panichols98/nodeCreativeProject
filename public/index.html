@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vue REST</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+</head>
+
+<body>
+    <div id="app">
+        <h1>TV Show Search!</h1>
+        <h2>Enter a TV show here</h2>
+        <h4>Click on the desired show to get more information</h4>
+        <form v-on:keyup.prevent="getShows">
+            <input type="text" v-model="prefix">
+        </form>
+        <ul v-if="!viewShow">
+            <li v-for="item in shows" @click="getShowInfo(item.show.id)">
+                {{ item.show.name }}
+            </li>
+        </ul>
+        <div v-if="viewShow" id="infoTable">
+            <h3>{{showInfo.name}}</h3>
+            <p>{{showInfo.summary}}</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="javascripts/script.js"></script>
+</body>
+
+<footer>
+
+</footer>
+
+</html>
