@@ -2,26 +2,38 @@
 <html lang="en">
 
 <head>
-    <title>Vue REST</title>
+    <title>Node Creative Project</title>
     <link rel="stylesheet" href="stylesheets/style.css" />
 </head>
 
 <body>
     <div id="app">
         <h1>TV Show Search!</h1>
-        <h2>Enter a TV show here</h2>
-        <h4>Click on the desired show to get more information</h4>
+        <h2>Enter a TV show here:</h2>
         <form v-on:keyup.prevent="getShows">
             <input type="text" v-model="prefix">
         </form>
+        <h4>Click on the desired show to get more information</h4>
         <ul v-if="!viewShow">
             <li v-for="item in shows" @click="getShowInfo(item.show.id)">
                 {{ item.show.name }}
             </li>
         </ul>
         <div v-if="viewShow" id="infoTable">
-            <h3>{{showInfo.name}}</h3>
-            <p>{{showInfo.summary}}</p>
+            <section>
+                <aside>
+                    <img :src="showInfo.image.medium" />
+                </aside>
+                <article>
+                    <h3>{{showInfo.name}}</h3>
+                    <p v-html="showInfo.summary"></p>
+                    <p>Episode Length: {{showInfo.runtime}} min</p>
+                    <p>Network: {{showInfo.network.name}}</p>
+                    <p v-if="showInfo.officialSite != null">Official Site: <a :href="showInfo.officialSite">{{showInfo.officialSite}}</a></p>
+                    <p>Premiered: {{showInfo.premiered}}</p>
+                    <p>Show Status: {{showInfo.status}}</p>
+                </article>
+            </section>
         </div>
     </div>
 
@@ -31,7 +43,7 @@
 </body>
 
 <footer>
-
+    <a href="https://github.com/panichols98/nodeCreativeProject.git">Github</a>
 </footer>
 
 </html>

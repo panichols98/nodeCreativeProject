@@ -1,12 +1,55 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightgrey;
 }
 
 a {
-  color: #00B7FF;
+  color: darkblue;
+}
+
+h1 {
+  font-family: helvetica;
+  text-align: center;
 }
 
 h3 {
+  font-family: helvetica;
   text-align: center;
+  text-decoration: underline;
 }
+
+h4 {
+  font-family: helvetica;
+  font-style: italic;
+}
+
+li {
+  font-family: helvetica;
+  cursor: pointer;
+}
+
+img {
+  margin-top: 10px;
+  border: 1px solid black;
+  padding: 1px;
+}
+
+section {
+ display: flex;
+}
+
+aside {
+ flex: 1;
+}
+
+article {
+    flex: 4;
+    text-align: left;
+    margin-left: 10px;
+}
+
+footer {
+  margin-top: 10px;
+}
+
